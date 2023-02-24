@@ -3,12 +3,20 @@ import puppeteer from "puppeteer";
 const app = express();
 const port = 3000;
 
+app.use(express.static("storage"));
+
 app.get("/", async (req, res) => {
   //1. Execute function to get lead_story
-  const lead_story = await crawlSite();
+  const { lead_story, timestamp } = await crawlSite();
 
   //2. Show lead_story
-  res.send(`<html><body>${lead_story}</body></html>`);
+  res.send(`
+    <html>
+      <body>
+        <h1>${lead_story}</h1>
+        <img src="/images/${timestamp}.png" />
+      </body>
+    </html>`);
 });
 
 app.listen(port, () => {
@@ -30,7 +38,6 @@ async function crawlSite() {
   //2. Take a screenshot
   await page.screenshot({
     path: `storage/images/${timestamp}.png`,
-    fullPage: true,
   });
 
   const lead_story = await page.$eval(
@@ -38,5 +45,5 @@ async function crawlSite() {
     (el) => el.innerHTML
   );
 
-  return lead_story;
+  return { lead_story, timestamp };
 }
