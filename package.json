@@ -1,0 +1,24 @@
+{
+  "name": "automate-form-submission",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "html2canvas": "^1.4.1",
+    "node-fetch": "^3.3.0",
+    "pg": "^8.9.0",
+    "pg-hstore": "^2.3.4",
+    "puppeteer": "^19.7.2",
+    "puppeteer-extra": "^3.3.4",
+    "puppeteer-extra-plugin-recaptcha": "^3.6.6",
+    "sequelize": "^6.29.0"
+  },
+  "type": "module"
+}
