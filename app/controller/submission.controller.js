@@ -1,4 +1,6 @@
-exports.crawlSite = async (req, res) => {
+const submissionController = {};
+
+submissionController.crawlSite = async (req, res, next) => {
   console.log("Function Crawl Site executed");
 
   //1. Set time and date for screenshot
@@ -29,6 +31,4 @@ exports.crawlSite = async (req, res) => {
     </html>`);
 };
 
-export default {
-  crawlSite,
-};
+export default submissionController;

@@ -1,13 +1,10 @@
 import express from "express";
-import crawlSite from 'module';
+import submissionController from '../controller/submission.controller.js';
 
 const router = express.Router();
 
-module.exports = (app) => {
+router.get("/", async (req, res) => {
+  await submissionController.crawlSite;
+});
 
-  router.get("/", crawlSite);
-
-  app.use("/submission", router);
-};
-
-export default routes;
+export default router;
