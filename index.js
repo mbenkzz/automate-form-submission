@@ -1,5 +1,4 @@
 import express from "express";
-// import routes from "./routes/routes.submission.js";
 import router from "./app/routes/routes.submission.js";
 
 const app = express();
@@ -11,7 +10,12 @@ app.use(express.static("storage"));
 app.use(express.json());
 
 // call routes from routes.submission.js
-app.use("/", router);
+app.use("/submission", router);
+
+// route for root
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the submission app." });
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}.`);

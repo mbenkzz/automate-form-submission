@@ -3,8 +3,9 @@ import submissionController from '../controller/submission.controller.js';
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  await submissionController.crawlSite;
+router.get("/", (req, res) => {
+
+  submissionController.crawlSite(req, res);
 });
 
 export default router;
